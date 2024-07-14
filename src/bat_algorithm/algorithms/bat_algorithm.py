@@ -30,10 +30,10 @@ class BatAlgorithm(BatAlgorithmParams):
                 position=position,
                 velocity=velocity,
                 frequency=frequency,
+                fitness=fitness,
                 marginal_pulse_rate=marginal_pulse_rate,
                 pulse_rate=pulse_rate,
                 loudness=loudness,
-                fitness=fitness,
             ))
         return bats
 
