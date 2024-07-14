@@ -22,17 +22,17 @@ class BatAlgorithm(BatAlgorithmParams):
             position: npt.NDArray[np.float64] = np.random.uniform(self.min_position, self.max_position, self.dimension)
             velocity: npt.NDArray[np.float64] = np.zeros(self.dimension)
             frequency: float = 0.
-            pulse_rate: float = 0.
             marginal_pulse_rate: float = 1.
+            pulse_rate: float = 0.
             loudness: float = 1.
             fitness: float = objective_function(position)
             bats.append(Bat(
                 position=position,
                 velocity=velocity,
                 frequency=frequency,
-                loudness=loudness,
-                pulse_rate=pulse_rate,
                 marginal_pulse_rate=marginal_pulse_rate,
+                pulse_rate=pulse_rate,
+                loudness=loudness,
                 fitness=fitness,
             ))
         return bats

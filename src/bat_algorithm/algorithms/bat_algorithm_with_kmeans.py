@@ -24,17 +24,17 @@ class BatAlgorithmWithKMeans(BatAlgorithmParams):
             position, labels, inertia = self.kmeans.run(self.dimension)
             velocity: npt.NDArray[np.float64] = np.zeros((self.dimension, self.space_dimension))
             frequency: float = 0.
-            pulse_rate: float = 0.
             marginal_pulse_rate: float = 1.
+            pulse_rate: float = 0.
             loudness: float = 1.
             bats.append(Bat(
                 position=position,
                 velocity=velocity,
                 frequency=frequency,
-                loudness=loudness,
-                pulse_rate=pulse_rate,
+                fitness=inertia,
                 marginal_pulse_rate=marginal_pulse_rate,
-                fitness=inertia
+                pulse_rate=pulse_rate,
+                loudness=loudness,
             ))
             labels_list.append(labels)
         return bats, labels_list

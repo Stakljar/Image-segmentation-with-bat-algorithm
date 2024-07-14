@@ -68,18 +68,18 @@ class CNNBatAlgorithm(BatAlgorithmParams):
             position: npt.NDArray[np.float64] = np.random.uniform(self.min_position, self.max_position, self.dimension)
             velocity: npt.NDArray[np.float64] = np.zeros(self.dimension)
             frequency: float = 0.
-            pulse_rate: float = 0.
             marginal_pulse_rate: float = 1.
+            pulse_rate: float = 0.
             loudness: float = 1.
             fitness, model_state, num_epoch = self._train_and_validate_model(position)
             bats.append(Bat(
                 position=position,
                 velocity=velocity,
                 frequency=frequency,
-                loudness=loudness,
-                pulse_rate=pulse_rate,
+                fitness=fitness,
                 marginal_pulse_rate=marginal_pulse_rate,
-                fitness=fitness
+                pulse_rate=pulse_rate,
+                loudness=loudness,
             ))
             model_states.append(model_state)
             nums_epochs.append(num_epoch)
